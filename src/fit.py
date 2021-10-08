@@ -15,13 +15,14 @@ def main(image_shape=(64, 64, 1), n_classes=3, n_blocks=4, batch_size=20):
 
     X, Y = next(generator)
 
-    plt.imshow(X[0, :, :, 0])
-    plt.savefig("example_X.png")
-    plt.close()
+    for index in range(batch_size):
+        plt.imshow(X[index, :, :, 0])
+        plt.savefig(f"example_X_{index}.png")
+        plt.close()
 
-    plt.imshow(Y[0, :, :, :].argmax(axis=-1))
-    plt.savefig("example_Y.png")
-    plt.close()
+        plt.imshow(Y[index, :, :, :].argmax(axis=-1))
+        plt.savefig(f"example_Y_{index}.png")
+        plt.close()
 
     history = model.fit(
         x=generator,
@@ -39,9 +40,10 @@ def main(image_shape=(64, 64, 1), n_classes=3, n_blocks=4, batch_size=20):
 
     predictions = model.predict(X)
 
-    plt.imshow(predictions[0, :, :, :].argmax(axis=-1))
-    plt.savefig("example_predictions.png")
-    plt.close()
+    for index in range(batch_size):
+        plt.imshow(predictions[index, :, :, :].argmax(axis=-1))
+        plt.savefig(f"example_predictions_{index}.png")
+        plt.close()
 
 
 if __name__ == "__main__":
