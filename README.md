@@ -13,6 +13,11 @@ which is encoded as -1.
 The missing values are the vertical and horizontal bars in the example below.
 Can the model learn to ignore missing Xs and learn from nearby non-missing pixels?
 
+Input X (including missing values encoded as -1):
 ![X](example_X_3.png)
+
+True class labels:
 ![Y](example_Y_3.png)
+
+Predictions:
 ![predictions](example_predictions_3.png)
