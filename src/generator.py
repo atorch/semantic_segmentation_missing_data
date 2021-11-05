@@ -68,6 +68,7 @@ def get_generator(image_shape, n_classes, batch_size=20, box_width_small=16, box
 
             # Now let's add some larger (beautiful and very square) clouds
             batch_X = insert_random_box(batch_X, batch_index, image_shape, box_width=6, box_class=-1)
+            batch_X = insert_random_box(batch_X, batch_index, image_shape, box_width=8, box_class=-1)
 
         # This changes the shape of batch_Y from
         # (batch_size,) + image_shape[:2] + (1,) to
