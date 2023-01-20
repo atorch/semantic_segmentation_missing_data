@@ -1,15 +1,12 @@
 from tensorflow.keras import losses, optimizers
-from tensorflow.keras import backend as K
 from tensorflow.keras.models import Model
 from tensorflow.keras.layers import (
     BatchNormalization,
     Conv2D,
-    Dense,
     Dropout,
     Flatten,
     Input,
     MaxPooling2D,
-    Reshape,
     UpSampling2D,
     concatenate,
 )
@@ -84,12 +81,7 @@ def get_model(image_shape, n_blocks, n_classes):
         current_last_layer
     )
 
-    model = Model(
-        inputs=input_layer,
-        outputs=[
-            output,
-        ],
-    )
+    model = Model(inputs=input_layer, outputs=[output,],)
 
     print(model.summary())
 
@@ -97,11 +89,8 @@ def get_model(image_shape, n_blocks, n_classes):
 
     model.compile(
         optimizer=nadam,
-        loss={
-            "output": losses.categorical_crossentropy,
-        },
+        loss={"output": losses.categorical_crossentropy,},
         metrics=["accuracy"],
     )
 
     return model
-
