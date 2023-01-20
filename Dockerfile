@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow:2.3.0-gpu
+FROM tensorflow/tensorflow:2.9.3-gpu
 
 WORKDIR /home/semantic_segmentation_missing_data
 
